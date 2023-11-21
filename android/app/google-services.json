@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "3579963431",
+    "project_id": "bebeface-6f159",
+    "storage_bucket": "bebeface-6f159.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3579963431:android:65cac92ab836f9c46c4602",
+        "android_client_info": {
+          "package_name": "com.bebeface"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuTakVd1lz5U3-Y5i3de73LOvJU8WwkKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
