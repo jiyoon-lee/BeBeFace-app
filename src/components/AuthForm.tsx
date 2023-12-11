@@ -10,40 +10,21 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import useLogin from '../hooks/useLogin';
-import useRegister from '../hooks/useRegister';
 
-export interface AuthFormProps {
-  isRegister?: boolean;
-}
-
-function AuthForm({isRegister}: AuthFormProps) {
+function AuthForm() {
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
 
-  const {mutate: login, isLoading: loginLoading} = useLogin();
-  const {mutate: register, isLoading: registerLoading} = useRegister();
-
-  const isLoading = loginLoading || registerLoading;
+  const {mutate: login, isLoading} = useLogin();
 
   const onPress = () => {
     if (isLoading) {
       return;
     }
-
-    if (isRegister) {
-      register({
-        email,
-        username,
-        password,
-      });
-    } else {
-      login({
-        email: identifier,
-        password,
-      });
-    }
+    login({
+      email,
+      password,
+    });
   };
 
   return (
@@ -51,34 +32,21 @@ function AuthForm({isRegister}: AuthFormProps) {
       style={styles.block}
       behavior={Platform.select({ios: 'padding'})}>
       <View style={styles.block}>
-        <View>
-          {isRegister ? (
-            <>
-              <TextInput
-                style={styles.input}
-                placeholder="이메일"
-                value={email}
-                onChangeText={setEmail}
-                autoCapitalize="none"
-                keyboardType="email-address"
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="계정명"
-                value={username}
-                onChangeText={setUsername}
-                autoCapitalize="none"
-              />
-            </>
-          ) : (
-            <TextInput
-              style={styles.input}
-              placeholder="이메일 또는 계정명"
-              value={identifier}
-              onChangeText={setIdentifier}
-              autoCapitalize="none"
-            />
-          )}
+        <View style={{alignItems: 'center'}}>
+          <Text style={{fontSize: 40}}>Login here</Text>
+          <Text style={{fontSize: 17, marginTop: 5, marginBottom: 80}}>
+            Welcome to BeBeFace!
+          </Text>
+        </View>
+        <View style={{paddingHorizontal: 20}}>
+          <TextInput
+            style={styles.input}
+            placeholder="이메일"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
           <TextInput
             style={styles.input}
             placeholder="비밀번호"
@@ -96,9 +64,7 @@ function AuthForm({isRegister}: AuthFormProps) {
             {isLoading ? (
               <ActivityIndicator size="small" color="white" />
             ) : (
-              <Text style={styles.submitText}>
-                {isRegister ? '회원가입' : '로그인'}
-              </Text>
+              <Text style={styles.submitText}>로그인</Text>
             )}
           </Pressable>
         </View>
@@ -109,20 +75,18 @@ function AuthForm({isRegister}: AuthFormProps) {
 
 const styles = StyleSheet.create({
   block: {
-    flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 12,
   },
   input: {
-    backgroundColor: 'white',
     padding: 8,
-    borderColor: '#dddddd',
-    borderWidth: 1,
+    backgroundColor: '#FFD6AA',
     marginBottom: 8,
+    borderRadius: 5,
   },
   submit: {
     marginTop: 24,
-    backgroundColor: '#2196f3',
+    backgroundColor: '#FF9F39',
     height: 56,
     borderRadius: 4,
     alignItems: 'center',

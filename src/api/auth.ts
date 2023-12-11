@@ -10,7 +10,7 @@ export async function register(params: RegisterParams) {
 }
 
 export async function login(params: LoginParams) {
-  const response = await client.post<AuthResult>('/auth/login', params);
+  const response = await client.post<AuthResult>('/api/auth/login', params);
   return response.data;
 }
 

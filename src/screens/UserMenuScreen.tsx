@@ -1,7 +1,6 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Text, View} from 'react-native';
-import MenuItem from '../components/MenuItem';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {RootStackNavigationProp} from './types';
 import {clearToken} from '../api/client';
 import {useUserState} from '../context/UserContext';
@@ -12,24 +11,45 @@ function UserMenuScreen() {
 
   const [user, setUser] = useUserState();
   const onLogin = () => navigation.navigate('Login');
-  const onRegister = () => navigation.navigate('Register');
   const onLogout = () => {
     setUser(null);
     clearToken();
     authStorage.clear();
   };
   return (
-    <View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       {user ? (
-        <MenuItem name="로그아웃" onPress={onLogout} />
+        <Pressable
+          style={[styles.submit]}
+          android_ripple={{color: '#00BCAA'}}
+          onPress={onLogout}>
+          <Text style={styles.submitText}>로그아웃</Text>
+        </Pressable>
       ) : (
-        <>
-          <MenuItem name="로그인" onPress={onLogin} />
-          <MenuItem name="회원가입" onPress={onRegister} />
-        </>
+        <Pressable
+          style={[styles.submit]}
+          android_ripple={{color: '#00BCAA'}}
+          onPress={onLogin}>
+          <Text style={styles.submitText}>로그인</Text>
+        </Pressable>
       )}
     </View>
   );
 }
-
+const styles = StyleSheet.create({
+  submit: {
+    marginTop: 5,
+    backgroundColor: '#FF9F39',
+    height: 80,
+    width: 150,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  submitText: {
+    fontSize: 30,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
 export default UserMenuScreen;

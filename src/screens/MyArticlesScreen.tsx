@@ -1,8 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 
 function MyArticlesScreen() {
-  return <View />;
+  return (
+    <View>
+      <Text>MyArticles</Text>
+    </View>
+  );
 }
 
 export default MyArticlesScreen;

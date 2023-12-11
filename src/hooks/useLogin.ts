@@ -15,7 +15,7 @@ export default function useLogin() {
   const mutation = useMutation(login, {
     onSuccess: data => {
       setUser(data.email);
-      navigation.pop();
+      navigation.navigate('MainTab');
       applyToken(data.accessToken);
       authStorage.set(data);
     },

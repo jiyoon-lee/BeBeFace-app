@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MainTabParamList} from './types';
-import ArticlesScreen from './ArticlesScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import UserMenuScreen from './UserMenuScreen';
+import PushAlarm from '../components/PushAlarm';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -12,22 +12,24 @@ function MainTab() {
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
+        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#FF9F39',
       }}>
-      {/* <Tab.Screen
-        name="Articles"
-        component={ArticlesScreen}
+      <Tab.Screen
+        name="PushAlarm"
+        component={PushAlarm}
         options={{
-          title: '게시글 목록',
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <MaterialIcons name="article" color={color} size={size} />
           ),
         }}
-      /> */}
+      />
       <Tab.Screen
         name="UserMenu"
         component={UserMenuScreen}
         options={{
-          title: '게시글 목록',
+          headerShown: false,
           tabBarIcon: ({color, size}) => (
             <MaterialIcons name="person" color={color} size={size} />
           ),
