@@ -19,7 +19,7 @@
 
   
 ### 사용기술
-- React Native, typescript, react-hook-form, axios, , prettier, eslint
+- React Native, typescript, firebase FCM, axios, prettier, eslint
 
 ## 설치 및 실행
 ### Metro Server 시작
