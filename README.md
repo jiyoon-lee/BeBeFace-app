@@ -51,7 +51,6 @@ npm run ios
 yarn ios
 ```
 
-
 ## 배포
 https://wondrous-pudding-b2d415.netlify.app
 
@@ -72,5 +71,5 @@ https://wondrous-pudding-b2d415.netlify.app
 
 
 ## UI 캡쳐
-<img src="./UI캡처/1.png" alt="drawing" width="600"/>
-<img src="./UI캡처/2.png" alt="drawing" width="600"/>
+<img src="./UI캡처/1.jpg" alt="drawing" width="600"/>
+<img src="./UI캡처/2.jpg" alt="drawing" width="600"/>
