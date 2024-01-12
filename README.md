@@ -71,5 +71,5 @@ https://wondrous-pudding-b2d415.netlify.app
 
 
 ## UI 캡쳐
-<img src="./UI캡처/1.jpg" alt="drawing" width="600"/>
-<img src="./UI캡처/2.jpg" alt="drawing" width="600"/>
+<img src="./UI캡처/1.jpg" alt="drawing" width="300"/>
+<img src="./UI캡처/2.jpg" alt="drawing" width="300"/>
