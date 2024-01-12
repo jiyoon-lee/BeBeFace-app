@@ -1,15 +1,28 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## 프로젝트 소개
+### BeBeFace
+“맘편히 맡겨, 엄마의 눈과 마음을 대신하다”<br>
+'BeBeFace'는 부모와 돌보미간의 원활한 소통을 돕고 아기의 성장과정을 체계적으로 기록하는 서비스를 제공하는 플랫폼입니다. 현대 사회에서 많은 부모들이 자녀를 타인에게 맡겨야 하는 현실에 직면하고 있습니다. 이런 상황에서 부모들이 가장 크게 고민하는 것이 자녀의 안전과 건강입니다. 'BeBeFace'는 이러한 부모들의 불안을 줄이기 위해 탄생하였습니다.
 
-# Getting Started
+### 주요 기능
+부모의 빈자리를 채워줄 수 있는 대표적인 두가지 서비스
+- AI
+  - 아기 침대에 부착된 캠으로 아이를 24시간 돌봄
+  - 아이표정을 인식하여 울음, 웃음, 뒤집힘이 감지되면 모바일 폰으로 알림 전송
+- 애플리케이션
+  - 아기 행동 기록(타임라인)
+  - 돌보미 출/퇴근 기록
+  - 아기 하루일기
+  - 아기 앨범(AI로 웃음이 감지되면 이를 캡처하여 앨범에 적재)
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+### 담당 업무
+- 크로스 플랫폼 앱 개발
 
-## Step 1: Start the Metro Server
+  
+### 사용기술
+- React Native, typescript, react-hook-form, axios, , prettier, eslint
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
+## 설치 및 실행
+### Metro Server 시작
 ```bash
 # using npm
 npm start
@@ -18,12 +31,8 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+### Application 시작
+**Android**
 ```bash
 # using npm
 npm run android
@@ -32,7 +41,7 @@ npm run android
 yarn android
 ```
 
-### For iOS
+**iOS**
 
 ```bash
 # using npm
@@ -42,38 +51,26 @@ npm run ios
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## 배포
+https://wondrous-pudding-b2d415.netlify.app
 
-## Step 3: Modifying your App
+※ 웹 프론트서버만 호스팅 된 상태로 백서버, DB서버, Flask서버는 로컬 PC에 있어 실제 사용은 불가능<br>
+   그럼에도 불구하고 웹 프론트서버만 호스팅 한 이유는 원활한 모바일 앱으로 알림을 보내기 위해
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## 시스템 아키텍처
+<img src="https://github.com/kosa-final-HLKP/fe-web/assets/59562141/367a4ae9-a213-43d0-8460-4dab3a05c6c7" alt="drawing" width="600"/>
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- 프론트웹서버(Next.js)와 백서버(Spring Boot)는 http 프로토콜을 통해 통신
+- 백엔드 서버는 로컬DB(MySQL)에 접속하여 데이터 관리
+- AI는 Flask 가상환경에서 Tensorflow와 Pythorch로 호환되기 쉽도록 ONNX형식으로 내보내진 YOLO모델을 활용
+- AI에서 아기의 울음, 웃음, 뒤집힘이 감지되면 http 통신으로 프론트웹서버(Next.js)에 http 호출하여 모바일 알림을 요청
+- 프론트웹서버(Next.js)에서 Firebase FCM을 이용하여 http통신으로 모바일 알림을 요청
+- Firebase에서 토큰이 발급된 디바이스(React Native)로 알림 요청
+- AI에서 아기의 웃음이 감지되면 백서버(SpringBoot)로 http 통신하여 웃는 이미지를 전송, 이 이미지를 전달받은 백서버(Spring Boot)는 DB에 저장
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## UI 캡쳐
+<img src="./UI캡처/4.png" alt="drawing" width="600"/>
+<img src="./UI캡처/2.png" alt="drawing" width="600"/>
