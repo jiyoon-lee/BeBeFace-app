@@ -69,6 +69,11 @@ https://wondrous-pudding-b2d415.netlify.app
 - Firebase에서 토큰이 발급된 디바이스(React Native)로 알림 요청
 - AI에서 아기의 웃음이 감지되면 백서버(SpringBoot)로 http 통신하여 웃는 이미지를 전송, 이 이미지를 전달받은 백서버(Spring Boot)는 DB에 저장
 
+## 데이터베이스
+<img src="./UI캡처/3.jpg" alt="drawing" width="700"/>
+<img src="./UI캡처/4.jpg" alt="drawing" width="700"/>
+<img src="./UI캡처/5.jpg" alt="drawing" width="700"/>
+
 
 ## UI 캡쳐
 <img src="./UI캡처/1.jpg" alt="drawing" width="300"/>
