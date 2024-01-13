@@ -23,7 +23,6 @@
 ### 담당 업무
 - 크로스 플랫폼 앱 개발
 
-  
 ### 사용기술
 - React Native, typescript, firebase FCM, axios, prettier, eslint
 
